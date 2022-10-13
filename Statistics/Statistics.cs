@@ -9,7 +9,7 @@ namespace Statistics
         public double max = Double.NegativeInfinity;
         public double min = Double.PositiveInfinity;
         
-        public Stats CalculateStatistics(List<float> numbers) {
+        public Stats CalculateStatistics(List<double> numbers) {
             //Implement statistics here
             Stats calc = new Stats();
             foreach(var item in numbers)
@@ -27,7 +27,7 @@ namespace Statistics
         Stats calc = new Stats();
         IAlerter[] alerter;
         double Threshold;
-        public StatsAlerter(float maxThreshold, IAlerter[] alerters)
+        public StatsAlerter(double maxThreshold, IAlerter[] alerters)
         {
             this.Threshold = maxThreshold;
             this.alerter = alerters;
@@ -37,19 +37,6 @@ namespace Statistics
             alerter = calc.getAlert(Threshold, alerter);
             return alerter;
         }
-    }
-    public class EmailAlert
-    {
-        public bool emailSent;
-    }
-    public class LEDAlert
-    {
-        public bool ledGlows;
-    }
-    public partial class IAlerter
-    {
-        public EmailAlert emailAlert {get; set;}
-        public LEDAlert ledAlert {get; set;}
     }
     public class Stats
     {
@@ -96,16 +83,38 @@ namespace Statistics
         {
             if(max > threshold)
             {
-                alert[0].emailAlert.emailSent = true;
-                alert[0].ledAlert.ledGlows = true;                
+                //alert[0].emailAlert.emailSent = true;
+                //alert[0].ledAlert.ledGlows = true;   
+                alert[0].emailSent = true;
+                alert[0].ledGlows = true;
             }
             else
             {
-                alert[0].emailAlert.emailSent = false;
-                alert[0].ledAlert.ledGlows = false;
+               // alert[0].emailAlert.emailSent = false;
+               // alert[0].ledAlert.ledGlows = false;
+                alert[0].emailSent = false;
+                alert[0].ledGlows = false;
             }
             return alert;
         }
     }
+     public class EmailAlert: IAlerter
+    {
+        
+    }
+    public class LEDAlert: IAlerter
+    {
+        
+    }
+    public class IAlerter
+    {
+         public bool emailSent;
+        public bool ledGlows;
+    }
+   // public partial class IAlerter
+   // {
+        //public EmailAlert emailAlert {get; set;}
+        //public LEDAlert ledAlert {get; set;}
+   // }
         
 }
