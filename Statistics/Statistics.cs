@@ -29,7 +29,7 @@ namespace Statistics
         double Threshold;
         public StatsAlerter(float maxThreshold, IAlerter[] alerters)
         {
-            this.Threshold = maxThresold;
+            this.Threshold = maxThreshold;
             this.alerter = alerters;
         }
         public IAlerter[] checkAndAlert(List<double> numbers)
@@ -76,7 +76,7 @@ namespace Statistics
         {
             return sum;
         }
-        public double Average()
+        public double getAverage()
         {
             //If no numbers entered, count == 0 ; value is Double.NaN
             avg = sum / count;
