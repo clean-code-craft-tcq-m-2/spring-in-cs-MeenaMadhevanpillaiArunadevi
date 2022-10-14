@@ -81,7 +81,7 @@ namespace Statistics
         }
         public IAlerter[] getAlert(double threshold, IAlerter[] alert)
         {
-            if(max > threshold)
+            if(max >= threshold)
             {
                 //alert[0].emailAlert.emailSent = true;
                 //alert[0].ledAlert.ledGlows = true;   
