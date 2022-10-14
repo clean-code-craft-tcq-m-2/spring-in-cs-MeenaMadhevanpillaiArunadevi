@@ -91,6 +91,9 @@ namespace Statistics
                 //alert[0].ledAlert.ledGlows = true;   
                 alert[0].emailSent = true;
                 alert[0].ledGlows = true;
+                
+                alert[1].emailSent = true;
+                alert[1].ledGlows = true;
             }
             else
             {
@@ -98,6 +101,9 @@ namespace Statistics
                // alert[0].ledAlert.ledGlows = false;
                 alert[0].emailSent = false;
                 alert[0].ledGlows = false;
+                
+                alert[1].emailSent = false;
+                alert[1].ledGlows = false;
             }
             return alert;
         }
