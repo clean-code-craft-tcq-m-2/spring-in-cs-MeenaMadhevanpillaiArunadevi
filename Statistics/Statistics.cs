@@ -83,6 +83,7 @@ namespace Statistics
             //If no numbers entered, value = -infinity
             return max;
         }
+    }
         
   
 }
