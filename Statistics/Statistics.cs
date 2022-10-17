@@ -83,48 +83,6 @@ namespace Statistics
             //If no numbers entered, value = -infinity
             return max;
         }
-        public IAlerter[] getAlert(double threshold, IAlerter[] alert)
-        {
-            if(max > threshold)
-            {
-                //alert[0].emailAlert.emailSent = true;
-                //alert[0].ledAlert.ledGlows = true;   
-                alert[0].emailSent = true;
-                alert[0].ledGlows = true;
-                
-                alert[1].emailSent = true;
-                alert[1].ledGlows = true;
-            }
-            else
-            {
-               // alert[0].emailAlert.emailSent = false;
-               // alert[0].ledAlert.ledGlows = false;
-                alert[0].emailSent = false;
-                alert[0].ledGlows = false;
-                
-                alert[1].emailSent = false;
-                alert[1].ledGlows = false;
-            }
-            return alert;
-        }
-    }
-     public class EmailAlert: IAlerter
-    {
         
-    }
-    public class LEDAlert: IAlerter
-    {
-        
-    }
-    public class IAlerter
-    {
-         public bool emailSent;
-        public bool ledGlows;
-    }
-   // public partial class IAlerter
-   // {
-        //public EmailAlert emailAlert {get; set;}
-        //public LEDAlert ledAlert {get; set;}
-   // }
-        
+  
 }
