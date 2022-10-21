@@ -25,14 +25,14 @@ namespace Statistics
     public class StatsAlerter
     {
         Stats calc = new Stats();
-        IAlerter[] alerter;
+        object[] alerter;
         double Threshold;
-        public StatsAlerter(double maxThreshold, IAlerter[] alerters)
+        public StatsAlerter(double maxThreshold, object[] alerters)
         {
             this.Threshold = maxThreshold;
             this.alerter = alerters;
         }
-        public IAlerter[] checkAndAlert(List<double> numbers)
+        public object[] checkAndAlert(List<double> numbers)
         {
             foreach(var item in numbers)
             {              
@@ -83,44 +83,60 @@ namespace Statistics
             //If no numbers entered, value = -infinity
             return max;
         }
-        public IAlerter[] getAlert(double threshold, IAlerter[] alert)
+        public object[] getAlert(double threshold, object[] alert)
         {
             if(max > threshold)
             {
                 //alert[0].emailAlert.emailSent = true;
-                //alert[0].ledAlert.ledGlows = true;   
-                alert[0].emailSent = true;
-                alert[0].ledGlows = true;
+                //alert[0].ledAlert.ledGlows = true;  
                 
-                alert[1].emailSent = true;
-                alert[1].ledGlows = true;
+                //alert[0].emailSent = true;
+                //alert[0].ledGlows = true;
+                
+                //alert[1].emailSent = true;
+                //alert[1].ledGlows = true;
+                
+                 ((EmailAlert)alert).emailSent = true;
+                 ((LEDAlert)alert).ledGlows = true;
             }
             else
             {
                // alert[0].emailAlert.emailSent = false;
                // alert[0].ledAlert.ledGlows = false;
-                alert[0].emailSent = false;
-                alert[0].ledGlows = false;
                 
-                alert[1].emailSent = false;
-                alert[1].ledGlows = false;
+                //alert[0].emailSent = false;
+                //alert[0].ledGlows = false;
+                
+                //alert[1].emailSent = false;
+                //alert[1].ledGlows = false;
+                
+                ((EmailAlert)alert).emailSent = false;
+                ((LEDAlert)alert).ledGlows = false;
             }
             return alert;
         }
     }
-     public class EmailAlert: IAlerter
-    {
-        
+    public class EmailAlert{
+        public bool emailSent;
     }
-    public class LEDAlert: IAlerter
-    {
-        
-    }
-    public class IAlerter
-    {
-         public bool emailSent;
+    public class LEDAlert{
         public bool ledGlows;
     }
+    
+    // public class EmailAlert: IAlerter
+    //{
+        
+   // }
+   // public class LEDAlert: IAlerter
+   // {
+        
+    //}
+    //public class IAlerter
+    //{
+      //   public bool emailSent;
+        //public bool ledGlows;
+    //}
+    
    // public partial class IAlerter
    // {
         //public EmailAlert emailAlert {get; set;}
