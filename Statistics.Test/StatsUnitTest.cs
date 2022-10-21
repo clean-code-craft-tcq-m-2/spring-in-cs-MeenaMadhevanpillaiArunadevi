@@ -33,7 +33,7 @@ namespace Statistics.Test
         {
             var emailAlert = new EmailAlert();
             var ledAlert = new LEDAlert();
-            IAlerter[] alerters = {emailAlert, ledAlert};
+            object[] alerters = {emailAlert, ledAlert};
 
             const double maxThreshold = 10.2;
             var statsAlerter = new StatsAlerter(maxThreshold, alerters);
