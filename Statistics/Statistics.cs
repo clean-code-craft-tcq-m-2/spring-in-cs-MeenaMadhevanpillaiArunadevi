@@ -96,8 +96,8 @@ namespace Statistics
                 //alert[1].emailSent = true;
                 //alert[1].ledGlows = true;
                 
-                 ((EmailAlert)alert[0]).emailSent = true;
-                 ((LEDAlert)alert[1]).ledGlows = true;
+                 ((EmailAlert)alert[0]).emailSent = false;
+                 ((LEDAlert)alert[1]).ledGlows = false;
             }
             else
             {
@@ -110,8 +110,8 @@ namespace Statistics
                 //alert[1].emailSent = false;
                 //alert[1].ledGlows = false;
                 
-                ((EmailAlert)alert[0]).emailSent = true;
-                ((LEDAlert)alert[1]).ledGlows = true;
+                ((EmailAlert)alert[0]).emailSent = false;
+                ((LEDAlert)alert[1]).ledGlows = false;
             }
             return alert;
         }
