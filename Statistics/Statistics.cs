@@ -85,7 +85,7 @@ namespace Statistics
         }
         public object[] getAlert(double threshold, object[] alert)
         {
-            if(max > threshold)
+            if(max <= threshold)
             {
                 //alert[0].emailAlert.emailSent = true;
                 //alert[0].ledAlert.ledGlows = true;  
@@ -96,8 +96,8 @@ namespace Statistics
                 //alert[1].emailSent = true;
                 //alert[1].ledGlows = true;
                 
-                 ((EmailAlert)alert[0]).emailSent = true;
-                 ((LEDAlert)alert[1]).ledGlows = true;
+                 ((EmailAlert)alert[0]).emailSent = false;
+                 ((LEDAlert)alert[1]).ledGlows = false;
             }
             else
             {
