@@ -26,13 +26,13 @@ namespace Statistics
     {
         Stats calc = new Stats();
         object[] alerter;
-        float Threshold;
-        public StatsAlerter(float maxThreshold, object[] alerters)
+        double Threshold;
+        public StatsAlerter(double maxThreshold, object[] alerters)
         {
             this.Threshold = maxThreshold;
             this.alerter = alerters;
         }
-        public object[] checkAndAlert(List<float> numbers)
+        public object[] checkAndAlert(List<double> numbers)
         {
             foreach(var item in numbers)
             {              
@@ -83,7 +83,7 @@ namespace Statistics
             //If no numbers entered, value = -infinity
             return max;
         }
-        public object[] getAlert(float threshold, object[] alert)
+        public object[] getAlert(double threshold, object[] alert)
         {
             if(max < threshold)
             {
